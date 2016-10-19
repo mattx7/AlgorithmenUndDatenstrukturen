@@ -1,4 +1,4 @@
-package ad.aufgabe2;
+package ad.blatt4;
 
 /******************************************************************************
  *  Compilation:  javac StdOut.java

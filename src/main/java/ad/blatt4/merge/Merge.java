@@ -1,4 +1,4 @@
-package ad.aufgabe2.merge;
+package ad.blatt4.merge;
 
 /******************************************************************************
  *  Compilation:  javac Merge.java
@@ -23,8 +23,8 @@ package ad.aufgabe2.merge;
  *
  ******************************************************************************/
 
-import ad.aufgabe2.StdIn;
-import ad.aufgabe2.StdOut;
+import ad.blatt4.StdIn;
+import ad.blatt4.StdOut;
 
 /**
  *  The {@code Merge} class provides static methods for sorting an
