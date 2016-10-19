@@ -1,33 +1,41 @@
 package ad.blatt4.NFA;
 
+
+
+import java.util.Collection;
+
 /**
  * Created by Neak on 19.10.2016.
- * Abstract Sequence-Elem Inclusion
+ * Abstract Data Type NFA inclusion
  */
-abstract class InclusionADT<T> {
+abstract class InclusionADT {
 
     // ================== ADT-Methods ============================
 
     /**
-     *
-     *  @param elem1 an elem that produces something where you ask yourself if it may be a part or equal to another elem that produces something
-     *  @param elem2 this is the elem you think the one mentioned before may be a part of
-     *  @return true if elem 1 is included in elem 2
+     * Runtime: O(n²)
+     * @require nfa_p not empty
+     * @require nfa_p not empty
+     * @param nfa_p NFA that produces sequences
+     * @param nfa_s NFA that specifies allowed sequences
+     * @return true if the producing NFA includes the sequence of the specifying NFA.
      */
-    public Boolean SeqIncludesADT(T elem1, T elem2) {
-        return SeqIncludes(elem1, elem2);
+
+    public Boolean SeqIncludesADT(Collection<?> nfa_p, Collection<?> nfa_s) {
+        // Precondition
+        assert nfa_p.isEmpty() : "nfa_p is empty";
+        assert nfa_s.isEmpty() : "nfa_s empty";
+        assert nfa_p.getClass().equals(nfa_s.getClass()) : "different types are not allowed";
+        // Implementation
+        Boolean aBoolean = SeqIncludes(nfa_p, nfa_s);
+        return aBoolean;
     }
-
-
-
 
     // ================== For implementation ============================
 
-    Boolean SeqIncludes(T elem1, T elem2) {
+    Boolean SeqIncludes(Collection<?> nfa0, Collection<?> nfa1) {
         return null;
     }
-
-
 
 
 }
