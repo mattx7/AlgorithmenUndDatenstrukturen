@@ -1,4 +1,4 @@
-package ad.aufgabe1;
+package ad.page1;
 
 /**
  * Created by abw286 on 06.10.2016.

@@ -1,5 +1,5 @@
-package ad.blatt4.sort_algos;
-/******************************************************************************
+package ad.page4.sort_algos;
+/*
  *  Compilation:  javac Insertion.java
  *  Execution:    java Insertion < input.txt
  *  Dependencies: StdOut.java StdIn.java
@@ -20,10 +20,10 @@ package ad.blatt4.sort_algos;
  *  % java Insertion < words3.txt
  *  all bad bed bug dad ... yes yet zoo   [ one string per line ]
  *
- ******************************************************************************/
+ */
 
-import ad.blatt4.StdIn;
-import ad.blatt4.StdOut;
+import ad.page4.StdIn;
+import ad.page4.StdOut;
 
 import java.util.Comparator;
 

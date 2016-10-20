@@ -1,4 +1,4 @@
-package ad.blatt4.NFA;
+package ad.page4.nfa;
 
 
 
@@ -6,7 +6,7 @@ import java.util.Collection;
 
 /**
  * Created by Neak on 19.10.2016.
- * Abstract Data Type NFA inclusion
+ * Abstract Data Type nfa inclusion
  */
 abstract class InclusionADT {
 
@@ -16,9 +16,9 @@ abstract class InclusionADT {
      * Runtime: O(n²)
      * @require nfa_p not empty
      * @require nfa_p not empty
-     * @param nfa_p NFA that produces sequences
-     * @param nfa_s NFA that specifies allowed sequences
-     * @return true if the producing NFA includes the sequence of the specifying NFA.
+     * @param nfa_p nfa that produces sequences
+     * @param nfa_s nfa that specifies allowed sequences
+     * @return true if the producing nfa includes the sequence of the specifying nfa.
      */
 
     public Boolean SeqIncludesADT(Collection<?> nfa_p, Collection<?> nfa_s) {

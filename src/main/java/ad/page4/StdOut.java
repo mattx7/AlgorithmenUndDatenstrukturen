@@ -1,4 +1,4 @@
-package ad.blatt4;
+package ad.page4;
 
 /******************************************************************************
  *  Compilation:  javac StdOut.java

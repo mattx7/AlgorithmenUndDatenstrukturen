@@ -1,4 +1,4 @@
-package ad.aufgabe1;
+package ad.page1;
 
 import java.util.LinkedList;
 

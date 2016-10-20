@@ -1,7 +1,7 @@
 /*
  * ADP Aufgabe 1.1
  */
-package ad.aufgabe1;
+package ad.page1;
 
 /**
  * FIFO-Queue als zyklisch arbeitenden Puffer mit beschränkter Größe.
