@@ -1,4 +1,4 @@
-package ad.blatt4.merge;
+package ad.blatt4.sort_algos;
 
 /* *****************************************************************************
  *  Compilation:  javac Merge.java
@@ -53,7 +53,7 @@ public class Merge {
             aux[k] = a[k];
         }
 
-        // merge back to a[]
+        // sort_algos back to a[]
         int i = lo, j = mid+1;
         for (int k = lo; k <= hi; k++) {
             if      (i > mid)              a[k] = aux[j++];
@@ -120,7 +120,7 @@ public class Merge {
             aux[k] = index[k];
         }
 
-        // merge back to a[]
+        // merges back to a[]
         int i = lo, j = mid+1;
         for (int k = lo; k <= hi; k++) {
             if      (i > mid)                    index[k] = aux[j++];
