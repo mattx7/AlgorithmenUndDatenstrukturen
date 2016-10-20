@@ -49,9 +49,7 @@ public class MergeSort {
         assert isSorted(a, mid+1, hi);
 
         // copy to aux[]
-        for (int k = lo; k <= hi; k++) {
-            aux[k] = a[k];
-        }
+        System.arraycopy(a, lo, aux, lo, hi + 1 - lo);
 
         // sort_algos back to a[]
         int i = lo, j = mid+1;
@@ -114,12 +112,8 @@ public class MergeSort {
      ***************************************************************************/
     // stably merge a[lo .. mid] with a[mid+1 .. hi] using aux[lo .. hi]
     private static void merge(Comparable[] a, int[] index, int[] aux, int lo, int mid, int hi) {
-
         // copy to aux[]
-        for (int k = lo; k <= hi; k++) {
-            aux[k] = index[k];
-        }
-
+        System.arraycopy(index, lo, aux, lo, hi + 1 - lo);
         // merges back to a[]
         int i = lo, j = mid+1;
         for (int k = lo; k <= hi; k++) {
@@ -158,9 +152,8 @@ public class MergeSort {
 
     // print array to standard output
     private static void show(Comparable[] a) {
-        for (int i = 0; i < a.length; i++) {
-            StdOut.println(a[i]);
-
+        for (Comparable anA : a) {
+            StdOut.println(anA);
         }
     }
 
