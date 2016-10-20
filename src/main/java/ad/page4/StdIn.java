@@ -259,7 +259,6 @@ public final class StdIn {
         return result;
     }
 
-
     /**
      * Reads and returns the next line, excluding the line separator if present.
      *
