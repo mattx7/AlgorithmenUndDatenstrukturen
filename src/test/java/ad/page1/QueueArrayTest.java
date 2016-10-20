@@ -13,16 +13,15 @@ import static org.testng.Assert.*;
 public class QueueArrayTest {
 
     private QueueArray<Integer> setFull() throws Exception {
-        QueueArray<Integer> i = new QueueArray<Integer>(5);
-        for(int j=1;j<=5;j++){
-            i.enqueueADT(j);
+        QueueArray<Integer> integer = new QueueArray<Integer>(5);
+        for(int i=1;i<=5;i++){
+            integer.enqueueADT(i);
         }
-        return i;
+        return integer;
     }
 
     private QueueArray<Integer> setEmpty() throws Exception {
-        QueueArray<Integer> i = new QueueArray<Integer>(5);
-        return i;
+        return new QueueArray<Integer>(5);
     }
 
     @Test
