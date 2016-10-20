@@ -37,7 +37,7 @@ import ad.blatt4.StdOut;
  *  @author Robert Sedgewick
  *  @author Kevin Wayne
  */
-public class Merge {
+public class Merge{
 
     // This class should not be instantiated.
     private Merge() { }
