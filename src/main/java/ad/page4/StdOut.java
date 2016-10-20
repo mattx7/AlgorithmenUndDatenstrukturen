@@ -309,8 +309,6 @@ public final class StdOut {
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
-
-        // write to stdout
         StdOut.println("Test");
         StdOut.println(17);
         StdOut.println(true);

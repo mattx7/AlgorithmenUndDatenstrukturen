@@ -419,8 +419,7 @@ public final class StdIn {
 
         // don't include first token if it is leading whitespace
         String[] decapitokens = new String[tokens.length-1];
-        for (int i = 0; i < tokens.length - 1; i++)
-            decapitokens[i] = tokens[i+1];
+        System.arraycopy(tokens, 1, decapitokens, 0, tokens.length - 1);
         return decapitokens;
     }
 
@@ -497,41 +496,6 @@ public final class StdIn {
         StdIn.scanner = scanner;
         StdIn.scanner.useLocale(LOCALE);
     }
-
-    /**
-     * Reads all remaining tokens, parses them as integers, and returns
-     * them as an array of integers.
-     * @return all remaining integers, as an array
-     * @throws InputMismatchException if any token cannot be parsed as an {@code int}
-     * @deprecated Replaced by {@link #readAllInts()}.
-     */
-    @Deprecated
-    public static int[] readInts() {
-        return readAllInts();
-    }
-
-    /**
-     * Reads all remaining tokens, parses them as doubles, and returns
-     * them as an array of doubles.
-     * @return all remaining doubles, as an array
-     * @throws InputMismatchException if any token cannot be parsed as a {@code double}
-     * @deprecated Replaced by {@link #readAllDoubles()}.
-     */
-    @Deprecated
-    public static double[] readDoubles() {
-        return readAllDoubles();
-    }
-
-    /**
-     * Reads all remaining tokens and returns them as an array of strings.
-     * @return all remaining tokens, as an array of strings
-     * @deprecated Replaced by {@link #readAllStrings()}.
-     */
-    @Deprecated
-    public static String[] readStrings() {
-        return readAllStrings();
-    }
-
 
     /**
      * Interactive test of basic functionality.
