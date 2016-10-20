@@ -1,8 +1,8 @@
 package ad.blatt4.sort_algos;
 
 /* *****************************************************************************
- *  Compilation:  javac Merge.java
- *  Execution:    java Merge < input.txt
+ *  Compilation:  javac MergeSort.java
+ *  Execution:    java MergeSort < input.txt
  *  Dependencies: StdOut.java StdIn.java
  *  Data files:   http://algs4.cs.princeton.edu/22mergesort/tiny.txt
  *                http://algs4.cs.princeton.edu/22mergesort/words3.txt
@@ -12,13 +12,13 @@ package ad.blatt4.sort_algos;
  *  % more tiny.txt
  *  S O R T E X A M P L E
  *
- *  % java Merge < tiny.txt
+ *  % java MergeSort < tiny.txt
  *  A E E L M O P R S T X                 [ one string per line ]
  *
  *  % more words3.txt
  *  bed bug dad yes zoo ... all bad yet
  *
- *  % java Merge < words3.txt
+ *  % java MergeSort < words3.txt
  *  all bad bed bug dad ... yes yet zoo    [ one string per line ]
  *
  ******************************************************************************/
@@ -27,7 +27,7 @@ import ad.blatt4.StdIn;
 import ad.blatt4.StdOut;
 
 /**
- *  The {@code Merge} class provides static methods for sorting an
+ *  The {@code MergeSort} class provides static methods for sorting an
  *  array using mergesort.
  *  <p>
  *  For additional documentation, see <a href="http://algs4.cs.princeton.edu/22mergesort">Section 2.2</a> of
@@ -37,10 +37,10 @@ import ad.blatt4.StdOut;
  *  @author Robert Sedgewick
  *  @author Kevin Wayne
  */
-public class Merge{
+public class MergeSort {
 
     // This class should not be instantiated.
-    private Merge() { }
+    private MergeSort() { }
 
     // stably merge a[lo .. mid] with a[mid+1 ..hi] using aux[lo .. hi]
     private static void merge(Comparable[] a, Comparable[] aux, int lo, int mid, int hi) {
@@ -172,7 +172,7 @@ public class Merge{
      */
     public static void main(String[] args) {
         String[] a = StdIn.readAllStrings();
-        Merge.sort(a);
+        MergeSort.sort(a);
         show(a);
     }
 }
