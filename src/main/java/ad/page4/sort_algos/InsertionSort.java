@@ -190,13 +190,6 @@ public class InsertionSort {
         return true;
     }
 
-    // print array to standard output
-    public static void show(Comparable[] elems) {
-        for (Comparable elem : elems) {
-            StdOut.println(elem);
-        }
-    }
-
     /**
      * Reads in a sequence of strings from standard input; insertion sorts them;
      * and prints them to standard output in ascending order.
@@ -206,6 +199,6 @@ public class InsertionSort {
     public static void main(String[] args) {
         String[] a = StdIn.readAllStrings();
         InsertionSort.sort(a);
-        show(a);
+        SortHelper.show(a);
     }
 }

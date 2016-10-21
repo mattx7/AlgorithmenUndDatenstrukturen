@@ -40,13 +40,6 @@ public class MaxSort {
         }
     }
 
-    // print array to standard output
-    public static void show(Comparable[] elems) {
-        for (Comparable elem : elems) {
-            StdOut.println(elem);
-        }
-    }
-
     public static void main(String argv[]) {
         Comparable[] elems = {5, 3, 2, 6, 9, 7, 5, 2};
 

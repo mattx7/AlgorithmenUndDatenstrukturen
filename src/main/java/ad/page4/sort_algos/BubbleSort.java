@@ -39,13 +39,6 @@ public class BubbleSort {
         }
     }
 
-    // print array to standard output
-    public static void show(Comparable[] elems) {
-        for (Comparable elem : elems) {
-            StdOut.println(elem);
-        }
-    }
-
     public static void main(String[] args) {
         int[] liste = {0, 9, 4, 6, 2, 8, 5, 1, 7, 3};
         sort(liste);
