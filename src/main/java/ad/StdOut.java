@@ -1,4 +1,4 @@
-package ad.page4;
+package ad;
 
 /******************************************************************************
  *  Compilation:  javac StdOut.java
@@ -27,7 +27,7 @@ import java.util.Locale;
  *  Here is an example program that uses {@code StdOut}:
  *  <pre>
  *   public class TestStdOut {
- *       public static void main(String[] args) {
+ *       public static void Main(String[] args) {
  *           int a = 17;
  *           int b = 23;
  *           int sum = a + b;
@@ -93,7 +93,7 @@ public final class StdOut {
     /**
      * Terminates the current line by printing the line-separator string.
      */
-    public static void println() {
+    static void println() {
         out.println();
     }
 

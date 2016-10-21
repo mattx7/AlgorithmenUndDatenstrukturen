@@ -1,5 +1,7 @@
 package ad.page4.sort_algos;
 
+import ad.StdOut;
+
 import java.util.Arrays;
 
 /**
@@ -8,6 +10,21 @@ import java.util.Arrays;
 public class MaxSort {
 
     private MaxSort(){}
+
+    public static void sort(int[] E) {
+        for (int n = E.length ; n > 1 ; n--) {
+
+            int maxIndex = 0;
+            for (int i = 1 ; i < n ; i++)
+                if (E[maxIndex] < E[i])
+                    maxIndex = i;
+
+            // Byt rundt på E[maxIndex] og E[n-1]
+            int tmp = E[maxIndex];
+            E[maxIndex] = E[n-1];
+            E[n-1] = tmp;
+        }
+    }
 
     public static void sort(Comparable[] elems) {
         for (int n = elems.length; n > 1; n--) {
@@ -20,6 +37,13 @@ public class MaxSort {
             Comparable tmp = elems[maxIndex];
             elems[maxIndex] = elems[n - 1];
             elems[n - 1] = tmp;
+        }
+    }
+
+    // print array to standard output
+    public static void show(Comparable[] elems) {
+        for (Comparable elem : elems) {
+            StdOut.println(elem);
         }
     }
 

@@ -23,8 +23,8 @@ package ad.page4.sort_algos;
  *
  ******************************************************************************/
 
-import ad.page4.StdIn;
-import ad.page4.StdOut;
+import ad.StdIn;
+import ad.StdOut;
 
 /**
  *  The {@code MergeSort} class provides static methods for sorting an
@@ -151,9 +151,9 @@ public class MergeSort {
     }
 
     // print array to standard output
-    private static void show(Comparable[] a) {
-        for (Comparable anA : a) {
-            StdOut.println(anA);
+    public static void show(Comparable[] elems) {
+        for (Comparable elem : elems) {
+            StdOut.println(elem);
         }
     }
 
@@ -164,7 +164,7 @@ public class MergeSort {
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
-        String[] a = StdIn.readAllStrings();
+        Integer[] a = StdIn.getNInts(10);
         MergeSort.sort(a);
         show(a);
     }

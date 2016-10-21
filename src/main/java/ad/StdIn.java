@@ -1,4 +1,4 @@
-package ad.page4;
+package ad;
 
 /******************************************************************************
  *  Compilation:  javac StdIn.java
@@ -9,11 +9,7 @@ package ad.page4;
  *
  ******************************************************************************/
 
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Locale;
-import java.util.NoSuchElementException;
-import java.util.Scanner;
+import java.util.*;
 import java.util.regex.Pattern;
 
 /**
@@ -139,12 +135,12 @@ import java.util.regex.Pattern;
  *  <b>Differences with Scanner.</b>
  *  {@code StdIn} and {@link Scanner} are both designed to parse
  *  tokens and convert them to primitive types and strings.
- *  Some of the main differences are summarized below:
+ *  Some of the Main differences are summarized below:
  *  <ul>
  *  <li> {@code StdIn} is a set of static methods and reads
  *       reads input from only standard input. It is suitable for use before
  *       a programmer knows about objects.
- *       See {@link In} for an object-oriented version that handles
+ *       See  for an object-oriented version that handles
  *       input from files, URLs,
  *       and sockets.
  *  <li> {@code StdIn} uses whitespace as the delimiter between tokens.
@@ -494,6 +490,22 @@ public final class StdIn {
     private static void setScanner(Scanner scanner) {
         StdIn.scanner = scanner;
         StdIn.scanner.useLocale(LOCALE);
+    }
+
+    /**
+     *
+     * @param n am
+     * @return ints
+     */
+    public static Integer[] getNInts(int n){
+        Integer[] ints = new Integer[n];
+        Random rn = new Random();
+        int i=0;
+        while (i < n){
+            ints[i] = rn.nextInt(1000)+1 ;
+            i++;
+        }
+        return ints;
     }
 
     /**
