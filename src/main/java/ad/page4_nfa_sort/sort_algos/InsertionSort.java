@@ -1,4 +1,4 @@
-package ad.page4.sort_algos;
+package ad.page4_nfa_sort.sort_algos;
 /*
  *  Compilation:  javac Insertion.java
  *  Execution:    java Insertion < input.txt
@@ -22,8 +22,7 @@ package ad.page4.sort_algos;
  *
  */
 
-import ad.StdIn;
-import ad.StdOut;
+import ad.helper.StdIn;
 
 import java.util.Comparator;
 

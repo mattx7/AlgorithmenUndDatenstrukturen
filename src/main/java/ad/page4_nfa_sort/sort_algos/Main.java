@@ -1,6 +1,7 @@
-package ad;
+package ad.page4_nfa_sort.sort_algos;
 
-import ad.page4.sort_algos.*;
+import ad.helper.StdIn;
+import ad.helper.StopWatch;
 
 /**
  * Created by MattX7 on 21.10.2016.

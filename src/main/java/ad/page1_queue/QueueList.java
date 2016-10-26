@@ -1,4 +1,4 @@
-package ad.page1;
+package ad.page1_queue;
 
 import java.util.LinkedList;
 

@@ -1,4 +1,4 @@
-package ad.page4.sort_algos;
+package ad.page4_nfa_sort.sort_algos;
 
 /* *****************************************************************************
  *  Compilation:  javac MergeSort.java
@@ -23,8 +23,7 @@ package ad.page4.sort_algos;
  *
  ******************************************************************************/
 
-import ad.StdIn;
-import ad.StdOut;
+import ad.helper.StdIn;
 
 /**
  *  The {@code MergeSort} class provides static methods for sorting an

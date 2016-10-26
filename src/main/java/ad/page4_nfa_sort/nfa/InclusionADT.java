@@ -1,4 +1,4 @@
-package ad.page4.nfa;
+package ad.page4_nfa_sort.nfa;
 
 
 

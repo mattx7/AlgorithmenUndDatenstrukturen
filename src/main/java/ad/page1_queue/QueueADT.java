@@ -1,4 +1,4 @@
-package ad.page1;
+package ad.page1_queue;
 
 /**
  * Created by MattX7 on 24.09.2016.

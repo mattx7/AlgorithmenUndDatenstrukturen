@@ -1,6 +1,4 @@
-package ad.page4.sort_algos;
-
-import ad.StdOut;
+package ad.page4_nfa_sort.sort_algos;
 
 import java.util.Arrays;
 

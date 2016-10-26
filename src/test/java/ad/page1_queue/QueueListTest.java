@@ -1,6 +1,5 @@
-package ad.page1;
+package ad.page1_queue;
 
-import ad.StopWatch;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -9,33 +8,34 @@ import java.math.BigDecimal;
 import static org.testng.Assert.*;
 
 /**
- * Created by MattX7 on 03.10.2016.
+ * Created by Neak on 03.10.2016.
  */
-public class QueueArrayTest {
+public class QueueListTest {
 
-    private QueueArray<Integer> setFull() throws Exception {
-        QueueArray<Integer> integer = new QueueArray<Integer>(5);
-        for(int i=1;i<=5;i++){
-            integer.enqueueADT(i);
+    private QueueList<Integer> setFull() throws Exception {
+        QueueList<Integer> i = new QueueList<Integer>(5);
+        for(int j=1;j<=5;j++){
+            i.enqueueADT(j);
         }
-        return integer;
+        return i;
     }
 
-    private QueueArray<Integer> setEmpty() throws Exception {
-        return new QueueArray<Integer>(5);
+    private QueueList<Integer> setEmpty() throws Exception {
+        QueueList<Integer> i = new QueueList<Integer>(5);
+        return i;
     }
 
     @Test
     public void testIsFull() throws Exception {
-        QueueArray<Integer> i = setFull();
+        QueueList<Integer> i = setFull();
         assertTrue(i.isFullADT());
     }
 
     @Test
     public void testIsEmpty() throws Exception {
-        QueueArray<Integer> i = setEmpty();
+        QueueList<Integer> i = setEmpty();
         assertTrue(i.isEmptyADT());
-        QueueArray<Integer> k = setFull();
+        QueueList<Integer> k = setFull();
         for(int j=1;j<=5;j++){
             assertEquals((int) k.dequeueADT(),j);
         }
@@ -46,7 +46,7 @@ public class QueueArrayTest {
 
     @Test
     public void testQueueCircle() throws Exception {
-        QueueArray<Integer> i = setFull();
+        QueueList<Integer> i = setFull();
         assertEquals((int) i.dequeueADT(),1);
         assertEquals((int) i.dequeueADT(),2);
         // Overload
@@ -67,7 +67,7 @@ public class QueueArrayTest {
     @Test
     public void testUnderload() throws Exception {
         try {
-            QueueArray<Integer> i = setEmpty();
+            QueueList<Integer> i = setEmpty();
             assertTrue(i.isEmptyADT());
             i.dequeueADT();
         }catch (AssertionError ae) {
@@ -78,7 +78,7 @@ public class QueueArrayTest {
     @Test
     public void testOverload() throws Exception {
         try {
-            QueueArray<Integer> i = setFull();
+            QueueList<Integer> i = setFull();
             assertTrue(i.isFullADT());
             i.enqueueADT(6);
         }catch (AssertionError ae){
@@ -89,7 +89,7 @@ public class QueueArrayTest {
     @Test
     public void testNull() throws Exception {
         try {
-            QueueArray<Integer> i = setEmpty();
+            QueueList<Integer> i = setEmpty();
             assertTrue(i.isEmptyADT());
             i.enqueueADT(null);
         }catch (AssertionError ae){
@@ -113,7 +113,7 @@ public class QueueArrayTest {
     @Test(dataProvider="queueTypesData")
     public void testQueueTypes(Object obj) throws Exception {
         // prepare
-        QueueArray<Object> o = new QueueArray<Object>(5);
+        QueueList<Object> o = new QueueList<Object>(5);
         int preCount = o.countADT();
         o.enqueueADT(obj);
         // ASSERTS
@@ -124,22 +124,11 @@ public class QueueArrayTest {
 
     @Test
     public void testCount() throws Exception {
-        QueueArray<Integer> i = new QueueArray<Integer>(5000000);
-        StopWatch sw = new StopWatch();
-        System.out.println("===== Runtime ===== ");
-        System.out.println("[5.000.000 Elements]");
-        sw.start();
-        for(int j=1;j<=5000000;j++){
+        QueueList<Integer> i = new QueueList<Integer>(5);
+        for(int j=1;j<=3;j++){
             i.enqueue(j);
         }
-        assertEquals(i.countADT(),5000000);
-        System.out.println("After Enqueue: "+sw.getActualTime()+"ms");
-        for(int j=1;j<=5000000;j++){
-            i.dequeue();
-        }
-        sw.stop();
-        System.out.println("After Dequeue: "+sw.getEndTime()+"ms");
-
+        assertEquals(i.countADT(),3);
     }
 
 }

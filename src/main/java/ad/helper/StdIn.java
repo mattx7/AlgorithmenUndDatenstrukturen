@@ -1,4 +1,4 @@
-package ad;
+package ad.helper;
 
 /******************************************************************************
  *  Compilation:  javac StdIn.java

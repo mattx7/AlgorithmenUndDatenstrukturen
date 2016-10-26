@@ -1,6 +1,6 @@
-package ad.page4.sort_algos;
+package ad.page4_nfa_sort.sort_algos;
 
-import ad.StdOut;
+import ad.helper.StdOut;
 
 /**
  * Created by MattX7 on 21.10.2016.
