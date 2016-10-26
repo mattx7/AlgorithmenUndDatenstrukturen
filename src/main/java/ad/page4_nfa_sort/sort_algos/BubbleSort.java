@@ -1,5 +1,7 @@
 package ad.page4_nfa_sort.sort_algos;
 
+import ad.helper.MyHelper;
+
 /**
  * Created by MattX7 on 21.10.2016.
  */
@@ -37,11 +39,10 @@ public class BubbleSort {
         }
     }
 
-    public static void main(String[] args) {
-        int[] liste = {0, 9, 4, 6, 2, 8, 5, 1, 7, 3};
-        sort(liste);
-        for (int i = 0; i < liste.length; i++)
-            System.out.print(liste[i] + " ");
+    public static void main(String args[]) {
+        Comparable[] elems = MyHelper.getRandomInts(10, 30);
+        MyHelper.show(elems, "before");
+        sort(elems);
+        MyHelper.show(elems, "after");
     }
-
 }

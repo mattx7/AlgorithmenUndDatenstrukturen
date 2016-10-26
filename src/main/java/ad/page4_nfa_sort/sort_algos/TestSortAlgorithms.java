@@ -1,35 +1,29 @@
 package ad.page4_nfa_sort.sort_algos;
 
-import ad.helper.StdIn;
+import ad.helper.MyHelper;
 import ad.helper.StopWatch;
 
 /**
  * Created by MattX7 on 21.10.2016.
  */
-public class Main {
-    static int n = 10000;
-    static Integer[] elems = new Integer[n];
-    static StopWatch stopWatch = new StopWatch();
+public class TestSortAlgorithms {
+    private static int n = 10000;
+    private static Integer[] elems = new Integer[n];
+    private static StopWatch stopWatch = new StopWatch();
 
-    public static void bestCase(){
-        for (Integer i = 0; i < n; i++) {
-            elems[i] = i+1;
-        }
+    private static void bestCase() {
+        elems = MyHelper.getINCInts(n);
     }
 
-    public static void avgCase(){
-        elems = StdIn.getNInts(n);
+    private static void avgCase() {
+        elems = MyHelper.getRandomInts(n, 1000);
     }
 
-    public static void worstCase(){
-        int i=0;
-        for (Integer j = n; j > 0; j--) {
-            elems[i] = j;
-            i++;
-        }
+    private static void worstCase() {
+        elems = MyHelper.getDESCInts(n);
     }
 
-    public static void runBestCase(){
+    private static void runBestCase() {
         System.out.println("=== Best Case ====");
 
         System.out.println("MergeSort:");
@@ -62,7 +56,7 @@ public class Main {
         System.out.println();
     }
 
-    public static void runAVGCase(){
+    private static void runAVGCase() {
         System.out.println("=== Average Case ====");
 
         System.out.println("MergeSort:");
@@ -95,7 +89,7 @@ public class Main {
         System.out.println();
     }
 
-    public static void runWorstCase(){
+    private static void runWorstCase() {
         System.out.println("=== Worst Case ====");
 
         System.out.println("MergeSort:");
@@ -127,10 +121,11 @@ public class Main {
         System.out.println("Runtime: "+stopWatch.stop());
         System.out.println();
     }
+
+
     public static void main(String[] args) {
         runBestCase();
         runAVGCase();
         runWorstCase();
-
     }
 }

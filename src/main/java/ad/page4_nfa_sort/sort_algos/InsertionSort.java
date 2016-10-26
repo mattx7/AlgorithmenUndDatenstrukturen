@@ -22,7 +22,7 @@ package ad.page4_nfa_sort.sort_algos;
  *
  */
 
-import ad.helper.StdIn;
+import ad.helper.MyHelper;
 
 import java.util.Comparator;
 
@@ -195,9 +195,10 @@ public class InsertionSort {
      *
      * @param args the command-line arguments
      */
-    public static void main(String[] args) {
-        String[] a = StdIn.readAllStrings();
-        InsertionSort.sort(a);
-        SortHelper.show(a);
+    public static void main(String args[]) {
+        Comparable[] elems = MyHelper.getRandomInts(10, 30);
+        MyHelper.show(elems, "before");
+        sort(elems);
+        MyHelper.show(elems, "after");
     }
 }

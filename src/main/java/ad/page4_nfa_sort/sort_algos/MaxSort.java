@@ -1,6 +1,6 @@
 package ad.page4_nfa_sort.sort_algos;
 
-import java.util.Arrays;
+import ad.helper.MyHelper;
 
 /**
  * Created by Neak on 20.10.2016.
@@ -38,12 +38,11 @@ public class MaxSort {
         }
     }
 
-    public static void main(String argv[]) {
-        Comparable[] elems = {5, 3, 2, 6, 9, 7, 5, 2};
-
-        System.out.println(Arrays.toString(elems));
+    public static void main(String args[]) {
+        Comparable[] elems = MyHelper.getRandomInts(10, 30);
+        MyHelper.show(elems, "before");
         sort(elems);
-        System.out.println(Arrays.toString(elems));
+        MyHelper.show(elems, "after");
     }
 }
 

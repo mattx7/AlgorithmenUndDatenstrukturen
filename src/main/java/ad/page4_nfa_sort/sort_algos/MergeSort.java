@@ -23,7 +23,7 @@ package ad.page4_nfa_sort.sort_algos;
  *
  ******************************************************************************/
 
-import ad.helper.StdIn;
+import ad.helper.MyHelper;
 
 /**
  *  The {@code MergeSort} class provides static methods for sorting an
@@ -31,7 +31,6 @@ import ad.helper.StdIn;
  *  <p>
  *  For additional documentation, see <a href="http://algs4.cs.princeton.edu/22mergesort">Section 2.2</a> of
  *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
- *  For an optimized version, see {@link MergeX}.
  *
  *  @author Robert Sedgewick
  *  @author Kevin Wayne
@@ -156,9 +155,10 @@ public class MergeSort {
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
-        Integer[] a = StdIn.getNInts(10);
-        MergeSort.sort(a);
-        SortHelper.show(a);
+        Comparable[] elems = MyHelper.getRandomInts(10, 30);
+        MyHelper.show(elems, "before");
+        sort(elems);
+        MyHelper.show(elems, "after");
     }
 }
 
