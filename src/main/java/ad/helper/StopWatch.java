@@ -17,12 +17,15 @@ public class StopWatch {
         return getEndTime();
     }
 
-    public long getActualTime(){
-        return (System.currentTimeMillis()-timeStart);
+    public String getActualTime() {
+        return runtimeToString(System.currentTimeMillis() - timeStart);
     }
 
     public String getEndTime(){
-        long runtime = timeEnd-timeStart;
+        return runtimeToString(timeEnd - timeStart);
+    }
+
+    private String runtimeToString(long runtime) {
         String output = "error";
         if (runtime < 1000) {
             output = runtime + " ms";
@@ -31,7 +34,7 @@ public class StopWatch {
                 output = runtime/1000 + " sec";
             }
             if (runtime > 1000 * 60) {
-                    output = runtime/1000 * 60 + " min";
+                output = runtime / 1000 * 60 + " min";
             }
         }
         return (output);

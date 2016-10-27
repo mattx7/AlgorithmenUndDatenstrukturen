@@ -133,12 +133,12 @@ public class QueueArrayTest {
             i.enqueue(j);
         }
         assertEquals(i.countADT(),5000000);
-        System.out.println("After Enqueue: "+sw.getActualTime()+"ms");
+        System.out.println("After Enqueue: " + sw.getActualTime());
         for(int j=1;j<=5000000;j++){
             i.dequeue();
         }
         sw.stop();
-        System.out.println("After Dequeue: "+sw.getEndTime()+"ms");
+        System.out.println("After Dequeue: " + sw.getEndTime());
 
     }
 
