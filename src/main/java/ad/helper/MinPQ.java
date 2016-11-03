@@ -147,13 +147,13 @@ public class MinPQ<Key> implements Iterable<Key> {
     /**
      * Adds a new key to this priority queue.
      *
-     * @param x the key to add to this priority queue
+     * @param x the key to put to this priority queue
      */
     public void insert(Key x) {
         // double size of array if necessary
         if (n == pq.length - 1) resize(2 * pq.length);
 
-        // add x, and percolate it up to maintain heap invariant
+        // put x, and percolate it up to maintain heap invariant
         pq[++n] = x;
         swim(n);
         assert isMinHeap();
@@ -247,7 +247,7 @@ public class MinPQ<Key> implements Iterable<Key> {
         // create a new pq
         private MinPQ<Key> copy;
 
-        // add all items to copy of heap
+        // put all items to copy of heap
         // takes linear time since already in heap order so no keys move
         public HeapIterator() {
             if (comparator == null) copy = new MinPQ<Key>(size());

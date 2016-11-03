@@ -7,39 +7,43 @@ import java.util.LinkedList;
 
 /**
  * Created by MattX7 on 01.11.2016.
- * Generates a Dictonary with random elements
+ * Generates a Dictionary with random amount elements
  */
 public class Generator<T> {
     private static LinkedList<Double> usedKeys = new LinkedList<Double>();
     private final static Double maxKeyValue = 100.0;
     private static int n = 30;
-    private static Double p, q;
 
     // === PUBLIC ===
 
-    public static Dictionary generate() {
-        Dictionary dictionary = new Dictionary();
-        _generate(dictionary, n);
-        return dictionary;
+    public static OurDictionary generate() {
+        OurDictionary<Double, String> dict = new OurDictionary<Double, String>();
+        _generate(dict, n);
+        return dict;
     }
 
     public static void setN(int n) {
         Generator.n = n;
     }
+
     // === PRIVATE ===
 
-    private static void _generate(Dictionary dictionary, int n) {
-        p = Math.random();
-        q = Math.random();
-        dictionary.add(new Object(), getNewKey());
-        if (yesOrNo(p)) dictionary.add(new Object(), getNewKey());
+    private static void _generate(OurDictionary<Double, String> dict, int n) {
+        Double p = Math.random();
+        Double q = Math.random();
+        Double key = getNewKey();
+        dict.put(key, key.toString());
+        if (yesOrNo(p))
+            key = getNewKey();
+        dict.put(key, key.toString());
         if (yesOrNo(1 - p)) {
-            dictionary.remove(getUsedKey());
-            if (yesOrNo(q)) dictionary.remove(getUsedKey());
-            if (yesOrNo(1 - p)) dictionary.add(new Object(), getNewKey());
+            dict.remove(getUsedKey());
+            if (yesOrNo(q)) dict.remove(getUsedKey());
+            key = getNewKey();
+            if (yesOrNo(1 - p)) dict.put(key, key.toString());
         }
         if (n != 0)
-            _generate(dictionary, n - 1);
+            _generate(dict, n - 1);
     }
 
     @NotNull
@@ -66,6 +70,6 @@ public class Generator<T> {
     // === MAIN ===
 
     public static void main(String[] args) {
-        System.out.println(generate().getMap().size());
+        System.out.println(generate().size());
     }
 }
