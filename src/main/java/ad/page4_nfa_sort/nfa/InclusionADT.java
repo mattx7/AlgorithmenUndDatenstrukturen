@@ -1,9 +1,6 @@
 package ad.page4_nfa_sort.nfa;
 
 
-
-import java.util.Collection;
-
 /**
  * Created by Neak on 19.10.2016.
  * Abstract Data Type nfa inclusion
@@ -21,7 +18,7 @@ abstract class InclusionADT {
      * @return true if the producing nfa includes the sequence of the specifying nfa.
      */
 
-    public Boolean SeqIncludesADT(Collection<?> nfa_p, Collection<?> nfa_s) {
+    public Boolean SeqIncludesADT(NFA nfa_p, NFA nfa_s) {
         // Precondition
         assert nfa_p.isEmpty() : "nfa_p is empty";
         assert nfa_s.isEmpty() : "nfa_s empty";
@@ -33,7 +30,7 @@ abstract class InclusionADT {
 
     // ================== For implementation ============================
 
-    Boolean SeqIncludes(Collection<?> nfa0, Collection<?> nfa1) {
+    Boolean SeqIncludes(NFA nfa0, NFA nfa1) {
         return null;
     }
 
