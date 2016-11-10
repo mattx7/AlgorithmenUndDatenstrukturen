@@ -1,20 +1,23 @@
 package ad.page4_nfa_sort.nfa;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by MattX7 on 09.11.2016.
  */
 public class NFAImpl implements NFA {
-    private List<State> states;
-    private List<Symbol> symbols;
-    private List<TransitionFunction> transitionFunctions;
+    private Set<State> states;
+    private Set<Symbol> symbols;
+    private Set<TransitionFunction> transitionFunctions;
     private State start;
     private List<State> ends;
-
+    private State currentState;
 
     /**
      * Adds states to the NFA
@@ -43,15 +46,14 @@ public class NFAImpl implements NFA {
      */
     public void addTransitionFunctions(@NotNull TransitionFunction... functions) throws IllegalArgumentException {
         for (TransitionFunction function : functions) {
+            // Precondition
             if (!hasState(function.getFromState()))
                 throw new IllegalArgumentException("NFA has no State: " + function.getFromState());
             if (!hasSymbol(function.getWithSymbol()))
                 throw new IllegalArgumentException("NFA has no Symbol: " + function.getWithSymbol());
-            for (State endState : function.getToStates()) {
-                if (!hasState(endState))
-                    throw new IllegalArgumentException("NFA has no State: " + endState);
-            }
-
+            if (!hasState(function.getToStates()))
+                throw new IllegalArgumentException("NFA has no State: " + function.getToStates());
+            // Implementation
             this.transitionFunctions.add(function);
         }
     }
@@ -63,8 +65,10 @@ public class NFAImpl implements NFA {
      * @throws IllegalArgumentException if param has unknown state
      */
     public void setStart(@NotNull State start) throws IllegalArgumentException {
+        // Precondition
         if (!hasState(start))
             throw new IllegalArgumentException("NFA has no State: " + start);
+        // Implementation
         this.start = start;
     }
 
@@ -76,8 +80,10 @@ public class NFAImpl implements NFA {
      */
     public void setEnd(@NotNull State... ends) throws IllegalArgumentException {
         for (State end : ends) {
+            // Precondition
             if (!hasState(end))
                 throw new IllegalArgumentException("NFA has no State: " + end);
+            // Implementation
             this.ends.add(end);
         }
     }
@@ -90,9 +96,43 @@ public class NFAImpl implements NFA {
      * @throws IllegalArgumentException if param has unknown states or symbols
      */
     @NotNull
-    public Boolean checkWord(@NotNull Symbol... word) throws IllegalArgumentException {
-        // TODO checkWord()
+    public Boolean checkWord(@NotNull List<Symbol> word) throws IllegalArgumentException {
+        // Precondition
+        for (Symbol symbol : word) {
+            if (!hasSymbol(symbol))
+                throw new IllegalArgumentException("NFA has no Symbol: " + symbol); // TODO Exc or null?
+        }
+        List<State> currentStates = transition(start, word.get(0));
+        if (currentStates.isEmpty()) {
+            return false;
+        }
+        // Implementation
+        _checkLetters(transition(start, word.get(0)), word, 1);
+
         return null;
+    }
+
+    @Nullable
+    private Boolean _checkLetters(@NotNull List<State> states,
+                                  @NotNull List<Symbol> word,
+                                  @NotNull Integer idx) {
+
+        // Abbruchbedingungen
+        if (lastLetterReached(word, idx)) { // Ende des Wortes erreicht?
+            for (State state : states) {
+                if (atAcceptableEndState(state))  // Endzustand erreicht? -> true
+                    return true;
+            }
+            return false;
+        }
+        // Zustände durchlaufen
+        for (State state : states) {
+            // zu den nächsten Zuständen
+            List<State> newStates = transition(state, word.get(idx));
+            if (!newStates.isEmpty()) // min ein Zustand mit Symbol gefunden?
+                return _checkLetters(newStates, word, idx + 1);
+        }
+        return false;
     }
 
     /**
@@ -106,10 +146,10 @@ public class NFAImpl implements NFA {
     }
 
     /**
-     * Returns true is NFA has the given symbol
+     * Returns true if NFA has the given symbol
      *
      * @param symbol is included?
-     * @return True is NFA has the given symbol
+     * @return True if NFA has the given symbol
      */
     @NotNull
     public Boolean hasSymbol(@NotNull Symbol symbol) {
@@ -117,13 +157,74 @@ public class NFAImpl implements NFA {
     }
 
     /**
-     * Returns true is NFA has the given state
+     * Returns true if NFA has the given state
      *
      * @param state is included?
-     * @return True is NFA has the given state
+     * @return True if NFA has the given state
      */
     @NotNull
     public Boolean hasState(@NotNull State state) {
         return states.contains(state);
+    }
+
+    /**
+     * Returns true if NFA has the given function
+     *
+     * @param function is included?
+     * @return True if NFA has the given function
+     */
+    @NotNull
+    public Boolean hasTransitionFunction(@NotNull TransitionFunction function) {
+        return transitionFunctions.contains(function);
+    }
+
+    // ===== PRIVATE =====
+
+    /**
+     * Returns a Set of new States. Could be empty.
+     *
+     * @param state  From this State
+     * @param symbol With this Symbol
+     * @return Set of States
+     */
+    @NotNull
+    private List<State> transition(@NotNull State state, @NotNull Symbol symbol) {
+        List<State> newStates = new LinkedList<State>();
+        for (TransitionFunction function : transitionFunctions) {
+            if (function.getFromState() == state && function.getWithSymbol() == symbol)
+                newStates.add(function.getToStates());
+        }
+        return newStates;
+    }
+
+    /**
+     * Returns a Set of applicable Symbols. Could be empty.
+     *
+     * @param symbol From this State
+     * @return Set of applicable Symbols. Could be empty.
+     */
+    @NotNull
+    private List<Symbol> applicableSymbolsFor(@NotNull Symbol symbol) {
+        List<Symbol> newSymbols = new LinkedList<Symbol>();
+        for (TransitionFunction function : transitionFunctions) {
+            if (function.getWithSymbol() == symbol)
+                newSymbols.add(function.getWithSymbol());
+        }
+        return newSymbols;
+    }
+
+    @NotNull
+    private Boolean lastLetterReached(@NotNull List<Symbol> word,
+                                      @NotNull Integer idx) {
+        return word.get(idx) == word.get(word.size() - 1);
+    }
+
+    @NotNull
+    private Boolean atAcceptableEndState(State state) {
+        for (State end : ends) {
+            if (state == end)
+                return true;
+        }
+        return false;
     }
 }

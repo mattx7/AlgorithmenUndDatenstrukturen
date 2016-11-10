@@ -2,6 +2,8 @@ package ad.page4_nfa_sort.nfa;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
+
 /**
  * Created by MattX7 on 09.11.2016.
  */
@@ -54,7 +56,7 @@ public interface NFA {
      * @throws IllegalArgumentException if param has unknown states or symbols
      */
     @NotNull
-    Boolean checkWord(@NotNull Symbol... word) throws IllegalArgumentException;
+    Boolean checkWord(@NotNull List<Symbol> word) throws IllegalArgumentException;
 
     /**
      * Returns true if NFA is empty
@@ -65,20 +67,31 @@ public interface NFA {
     Boolean isEmpty();
 
     /**
-     * Returns true is NFA has the given symbol
+     * Returns true if NFA has the given symbol
      *
      * @param symbol is included?
-     * @return True is NFA has the given symbol
+     * @return True if NFA has the given symbol
      */
     @NotNull
     Boolean hasSymbol(@NotNull Symbol symbol);
 
     /**
-     * Returns true is NFA has the given state
+     * Returns true if NFA has the given state
      *
      * @param state is included?
-     * @return True is NFA has the given state
+     * @return True if NFA has the given state
      */
     @NotNull
     Boolean hasState(@NotNull State state);
+
+    /**
+     * Returns true if NFA has the given function
+     *
+     * @param function is included?
+     * @return True if NFA has the given function
+     */
+    @NotNull
+    Boolean hasTransitionFunction(@NotNull TransitionFunction function);
+
+
 }

@@ -1,26 +1,24 @@
 package ad.page4_nfa_sort.nfa;
 
-import java.util.List;
-
 /**
  * Created by MattX7 on 09.11.2016.
  */
 public class TransitionFunction {
     private State fromState;
     private Symbol withSymbol;
-    private List<State> toStates;
+    private State toState;
 
     /**
      * State x Symbol -> P(State)
      *
      * @param fromState  From
      * @param withSymbol with
-     * @param toStates   to
+     * @param toState   to
      */
-    public TransitionFunction(State fromState, Symbol withSymbol, List<State> toStates) {
+    public TransitionFunction(State fromState, Symbol withSymbol, State toState) {
         this.fromState = fromState;
         this.withSymbol = withSymbol;
-        this.toStates = toStates;
+        this.toState = toState;
     }
 
     public State getFromState() {
@@ -39,12 +37,12 @@ public class TransitionFunction {
         this.withSymbol = withSymbol;
     }
 
-    public List<State> getToStates() {
-        return toStates;
+    public State getToStates() {
+        return toState;
     }
 
-    public void setToStates(List<State> toStates) {
-        this.toStates = toStates;
+    public void setToState(State toState) {
+        this.toState = toState;
     }
 
     @Override
@@ -52,7 +50,7 @@ public class TransitionFunction {
         return "TF{"
                 + fromState + " x "
                 + withSymbol + " -> "
-                + toStates +
+                + toState +
                 '}';
     }
 }
