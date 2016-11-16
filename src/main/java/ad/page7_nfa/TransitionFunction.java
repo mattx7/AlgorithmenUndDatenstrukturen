@@ -1,4 +1,4 @@
-package ad.page4_nfa_sort.nfa;
+package ad.page7_nfa;
 
 /**
  * Created by MattX7 on 09.11.2016.

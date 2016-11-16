@@ -1,4 +1,4 @@
-package ad.page4_nfa_sort.sort_algos;
+package ad.page4_nfaInclusion_sort.sort_algos;
 
 import ad.helper.MyHelper;
 import ad.helper.StopWatch;

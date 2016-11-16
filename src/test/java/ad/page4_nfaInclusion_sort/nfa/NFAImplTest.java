@@ -1,5 +1,9 @@
-package ad.page4_nfa_sort.nfa;
+package ad.page4_nfaInclusion_sort.nfa;
 
+import ad.page7_nfa.NFAImpl;
+import ad.page7_nfa.State;
+import ad.page7_nfa.Symbol;
+import ad.page7_nfa.TransitionFunction;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 

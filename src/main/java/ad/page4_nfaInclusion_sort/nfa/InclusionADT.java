@@ -1,5 +1,7 @@
-package ad.page4_nfa_sort.nfa;
+package ad.page4_nfaInclusion_sort.nfa;
 
+
+import ad.page7_nfa.NFA;
 
 /**
  * Created by Neak on 19.10.2016.

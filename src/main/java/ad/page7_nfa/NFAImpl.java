@@ -1,4 +1,4 @@
-package ad.page4_nfa_sort.nfa;
+package ad.page7_nfa;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
