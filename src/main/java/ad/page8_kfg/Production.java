@@ -8,9 +8,9 @@ import java.util.List;
  */
 class Production {
     private NonTerminal left;
-    private List<Right> right;
+    private List<Alphabet> right;
 
-    public Production(NonTerminal left, Right... right) {
+    public Production(NonTerminal left, Alphabet... right) {
         this.left = left;
         Collections.addAll(this.right, right);
     }
@@ -19,7 +19,7 @@ class Production {
         this.left = left;
     }
 
-    public void setRight(Right... right) {
+    public void setRight(Alphabet... right) {
         Collections.addAll(this.right, right);
     }
 }
