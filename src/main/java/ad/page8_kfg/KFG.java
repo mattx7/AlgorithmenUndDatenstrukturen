@@ -44,7 +44,7 @@ public interface KFG {
      * @throws IllegalArgumentException if param has unknown symbols
      */
     @NotNull
-    Boolean checkWord(@NotNull String word) throws IllegalArgumentException;
+    Boolean checkWord(@NotNull Terminal... word) throws IllegalArgumentException;
 
     /**
      * Returns true if KFG is empty

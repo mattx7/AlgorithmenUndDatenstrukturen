@@ -65,7 +65,7 @@ public class KfgImpl implements KFG {
      * @throws IllegalArgumentException if param has unknown symbols
      */
     @NotNull
-    public Boolean checkWord(@NotNull String word) throws IllegalArgumentException {
+    public Boolean checkWord(@NotNull Terminal... word) throws IllegalArgumentException {
         // TODO checkWord
         return null;
     }
