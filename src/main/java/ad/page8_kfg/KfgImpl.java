@@ -45,7 +45,7 @@ public class KfgImpl implements KFG {
                 throw new IllegalArgumentException("KFG has production already: " + prod);
             if (!nonTerminals.contains(prod.getLeft()))
                 throw new IllegalArgumentException("KFG does not offer the offered left side " + prod);
-            if (!nonTerminals.contains(prod.getRight()) || !terminals.contains(prod.getRight()))
+            if (!nonTerminals.containsAll(prod.getRight()) || !terminals.containsAll(prod.getRight()))
                 throw new IllegalArgumentException("KFG does not offer the offered right side " + prod);
         }
         Collections.addAll(this.productions, productions);
