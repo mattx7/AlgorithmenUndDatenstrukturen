@@ -8,7 +8,6 @@ import java.util.List;
  */
 class Production {
     private NonTerminal left;
-
     private List<Alphabet> right;
 
     public Production(NonTerminal left, Alphabet... right) {

@@ -39,7 +39,7 @@ interface KFG {
     /**
      * Returns true if word is acceptable
      *
-     * @param word symbols that should end at a acceptable state
+     * @param word terminals that should end at a acceptable state
      * @return true if word is acceptable
      * @throws IllegalArgumentException if param has unknown symbols
      */

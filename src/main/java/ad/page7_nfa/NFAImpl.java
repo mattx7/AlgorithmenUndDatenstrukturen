@@ -1,7 +1,6 @@
 package ad.page7_nfa;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.Collections;
 import java.util.LinkedList;
@@ -107,12 +106,12 @@ public class NFAImpl implements NFA {
             return false;
         }
         // Implementation
-        _checkLetters(transition(start, word.get(0)), word, 1);
 
-        return null;
+
+        return _checkLetters(transition(start, word.get(0)), word, 1);
     }
 
-    @Nullable
+    @NotNull
     private Boolean _checkLetters(@NotNull List<State> states,
                                   @NotNull List<Symbol> word,
                                   @NotNull Integer idx) {

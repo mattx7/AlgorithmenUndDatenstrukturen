@@ -69,15 +69,55 @@ public class KfgImpl implements KFG {
     /**
      * Returns true if word is acceptable
      *
-     * @param word symbols that should end at a acceptable state
+     * @param word terminals that should end at a acceptable state
      * @return true if word is acceptable
      * @throws IllegalArgumentException if param has unknown symbols
      */
     @NotNull
     public Boolean checkWord(@NotNull Terminal... word) throws IllegalArgumentException {
         // TODO checkWord
+        // Precondition
+        for (Terminal terminal : word) {
+            if (!hasTerminal(terminal))
+                throw new IllegalArgumentException("KFG has no Terminal: " + terminal); // TODO Exc or null?
+        }
+        // Implementation
+//        return _checkWord(word);
         return null;
     }
+
+//    @NotNull
+//    private Boolean _checkWord(@NotNull List<Alphabet> word) {
+//        Alphabet acc = word.get(0);
+//        if (word.size() > 1) {
+//            List<Alphabet> wordRest = word;
+//            wordRest.remove(0);
+//        } else {
+//            // LAST TERMINAL REACHED
+//            if (acc)
+//        }
+//
+//        _checkWord(wordRest);
+//        wordRest.get(0);
+//        return false;
+//    }
+//
+//    /**
+//     * Returns Productions for a Terminal(left side) or empty if we have no Production
+//     *
+//     * @param terminal (left side)
+//     * @return Productions for a Terminal(left side) or empty if we have no Production
+//     */
+//    private List<Production> productionsForTerminal(Terminal terminal) {
+//        List<Production> prodsForTerminal = new LinkedList<Production>();
+//        for (Production p : productions) {
+//            if (p.hasLeft(terminal)){
+//                prodsForTerminal.add(p);
+//            }
+//        }
+//        return prodsForTerminal;
+//    }
+
 
     /**
      * Returns true if KFG is empty
