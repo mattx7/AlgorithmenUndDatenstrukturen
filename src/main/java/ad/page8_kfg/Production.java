@@ -8,6 +8,7 @@ import java.util.List;
  */
 class Production {
     private NonTerminal left;
+
     private List<Alphabet> right;
 
     public Production(NonTerminal left, Alphabet... right) {
@@ -22,4 +23,8 @@ class Production {
     public void setRight(Alphabet... right) {
         Collections.addAll(this.right, right);
     }
+
+    public NonTerminal getLeft() {  return left; }
+
+    public List<Alphabet> getRight() {  return right; }
 }
