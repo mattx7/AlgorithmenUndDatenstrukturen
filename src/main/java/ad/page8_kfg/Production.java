@@ -27,4 +27,6 @@ class Production {
     public NonTerminal getLeft() {  return left; }
 
     public List<Alphabet> getRight() {  return right; }
+
+    public Boolean hasLeft(NonTerminal lefty) {  return getLeft().equals(lefty);}
 }
