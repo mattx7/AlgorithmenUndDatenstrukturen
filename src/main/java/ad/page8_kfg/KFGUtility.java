@@ -19,7 +19,9 @@ class KFGUtility {
 
     @NotNull
     public static KFG deleteLambdas(KFG kfg) {
-        // TODO deleteLambdas()
+        // TODO S->e wird ersetzt durch S'->S|e
+//        List<Production> productionsToDelete = getLambdaProduction();
+//        List<NonTerminal> nonTerminalToDelete =
         return null;
     }
 
