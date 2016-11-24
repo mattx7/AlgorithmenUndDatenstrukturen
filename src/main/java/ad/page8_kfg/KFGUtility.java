@@ -26,8 +26,13 @@ class KFGUtility {
     }
 
     @NotNull
-    public static KFG createChomskyNormalform(KFG kfg) {
+    public static KFG createChomskyNormalForm(KFG kfg) {
         // TODO createChomskyNormalform()
+        return null;
+    }
+
+    @NotNull
+    public static Boolean isChomskyNormalForm() {
         return null;
     }
 }
