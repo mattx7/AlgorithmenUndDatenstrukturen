@@ -1,5 +1,7 @@
 package ad.page09_huffmanndope;
 
+import ad.helper.StdRandom;
+
 /**
  * The {@code markovseq} class provides static methods for generating a random sequence bases on a Markov system.
  *
