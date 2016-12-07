@@ -5,7 +5,7 @@ import org.jetbrains.annotations.NotNull;
 /**
  * Created by MattX7 on 16.11.2016.
  */
-class Terminal implements Alphabet {
+public class Terminal implements Alphabet {
     private String id;
 
     public Terminal(String id) {
@@ -23,5 +23,10 @@ class Terminal implements Alphabet {
     @NotNull
     public static Terminal valueOf(@NotNull String terminal) {
         return new Terminal(terminal);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s", id);
     }
 }

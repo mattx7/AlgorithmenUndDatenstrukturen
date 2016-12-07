@@ -2,6 +2,8 @@ package ad.page8_kfg;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
+
 /**
  * Created by MattX7 on 16.11.2016.
  */
@@ -80,4 +82,14 @@ public interface KFG {
      */
     @NotNull
     Boolean hasProduction(@NotNull Production production);
+
+    List<Terminal> getTerminals();
+
+    List<NonTerminal> getNonTerminals();
+
+    List<Production> getProductions();
+
+    NonTerminal getStart();
+
+
 }

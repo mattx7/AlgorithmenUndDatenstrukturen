@@ -5,7 +5,7 @@ import org.jetbrains.annotations.NotNull;
 /**
  * Created by MattX7 on 16.11.2016.
  */
-class NonTerminal implements Alphabet {
+public class NonTerminal implements Alphabet {
     private String id;
 
     public NonTerminal(String id) {
@@ -23,5 +23,10 @@ class NonTerminal implements Alphabet {
     @NotNull
     public static NonTerminal valueOf(@NotNull String nonTerminal) {
         return new NonTerminal(nonTerminal);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s", id);
     }
 }

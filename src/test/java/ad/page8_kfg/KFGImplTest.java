@@ -47,8 +47,9 @@ public class KFGImplTest {
         testObject.addTerminal(x, y, z, epsilon);
         testObject.addNonTerminal(S, A, B, C, D);
         testObject.addProduction(S_epsilon, S_ABxC, A_xAy, A_epsilon, B_yBS, B_D, C_epsilon, D_B, D_z);
+        testObject.setStart(S);
 
-
+        System.out.println(testObject);
     }
 
     @Test

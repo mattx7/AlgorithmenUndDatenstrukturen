@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by MattX7 on 16.11.2016.
  */
-class KFGUtility {
+public class KFGUtility {
 
     private static List<Terminal> lambda = Arrays.asList(new Terminal("#"), new Terminal("?"));
 

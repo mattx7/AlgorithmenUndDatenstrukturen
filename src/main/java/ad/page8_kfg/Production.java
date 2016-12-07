@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by MattX7 on 16.11.2016.
  */
-class Production {
+public class Production {
     private NonTerminal left;
     private List<Alphabet> right;
 
@@ -32,4 +32,9 @@ class Production {
     }
 
     public Boolean hasLeft(NonTerminal lefty) {  return getLeft().equals(lefty);}
+
+    @Override
+    public String toString() {
+        return String.format("%s -> %s", left, right);
+    }
 }

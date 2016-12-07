@@ -7,6 +7,8 @@ import ad.page8_kfg.KFG;
  */
 public class CYK implements Algorithm {
 
+    public boolean doesCreateWord;
+
     private KFG kfg;
 
     /**
@@ -18,6 +20,7 @@ public class CYK implements Algorithm {
      */
     public void init(KFG kfg) {
         this.kfg = kfg;
+        this.doesCreateWord = false;
 
     }
 
@@ -28,10 +31,16 @@ public class CYK implements Algorithm {
      * @see #init(KFG)
      */
     public void compute() {
-
+        int n;
+//        for (int i = 0; i < n; i++) {
+//            for (Production production : kfg.getProductions()){
+//
+//            }
+//        }
     }
 
     public static void main(String[] args) {
-
+//        NonTerminal
+//        KFG kfg;
     }
 }

@@ -144,4 +144,25 @@ public class KFGImpl implements KFG {
     public Boolean hasProduction(@NotNull Production production) {
         return productions.contains(production);
     }
+
+    public List<Terminal> getTerminals() {
+        return terminals;
+    }
+
+    public List<NonTerminal> getNonTerminals() {
+        return nonTerminals;
+    }
+
+    public List<Production> getProductions() {
+        return productions;
+    }
+
+    public NonTerminal getStart() {
+        return start;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("G = (\n\tN = %s,\n\tT = %s,\n\tP = %s,\n\tA = %s\n)", nonTerminals, terminals, productions, start);
+    }
 }
