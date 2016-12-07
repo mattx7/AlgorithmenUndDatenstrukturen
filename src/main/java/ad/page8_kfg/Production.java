@@ -1,6 +1,7 @@
 package ad.page8_kfg;
 
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -12,6 +13,7 @@ class Production {
 
     public Production(NonTerminal left, Alphabet... right) {
         this.left = left;
+        this.right = new LinkedList<Alphabet>();
         Collections.addAll(this.right, right);
     }
 
@@ -25,7 +27,9 @@ class Production {
 
     public NonTerminal getLeft() {  return left; }
 
-    public List<Alphabet> getRight() {  return right; }
+    public List<Alphabet> getRight() {
+        return this.right;
+    }
 
     public Boolean hasLeft(NonTerminal lefty) {  return getLeft().equals(lefty);}
 }

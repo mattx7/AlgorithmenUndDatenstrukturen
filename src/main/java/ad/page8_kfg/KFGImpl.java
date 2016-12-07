@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by MattX7 on 16.11.2016.
  */
-public class KfgImpl implements KFG {
+public class KFGImpl implements KFG {
     private List<Terminal> terminals = new LinkedList<Terminal>();
     private List<NonTerminal> nonTerminals = new LinkedList<NonTerminal>();
     private List<Production> productions = new LinkedList<Production>();
@@ -39,14 +39,13 @@ public class KfgImpl implements KFG {
      * @param productions production function for the KFG
      */
     public void addProduction(@NotNull Production... productions) {
-        // TODO Preconditions
-        for (Production prod : productions) {
-            if (hasProduction(prod))
-                throw new IllegalArgumentException("KFG has production already: " + prod);
-            if (!nonTerminals.contains(prod.getLeft()))
-                throw new IllegalArgumentException("KFG does not offer the offered left side " + prod);
-            if (!nonTerminals.containsAll(prod.getRight()) || !terminals.containsAll(prod.getRight()))
-                throw new IllegalArgumentException("KFG does not offer the offered right side " + prod);
+        for (Production production : productions) {
+            if (hasProduction(production))
+                throw new IllegalArgumentException("KFG has production already: " + production);
+            if (!nonTerminals.contains(production.getLeft()))
+                throw new IllegalArgumentException("KFG does not offer the offered left side " + production);
+//            if (!nonTerminals.containsAll(production.getRight()) && !terminals.containsAll(production.getRight())) // TODO
+//                throw new IllegalArgumentException("KFG does not offer the offered right side " + production);
         }
         Collections.addAll(this.productions, productions);
 
@@ -86,22 +85,6 @@ public class KfgImpl implements KFG {
         return null;
     }
 
-//    @NotNull
-//    private Boolean _checkWord(@NotNull List<Alphabet> word) {
-//        Alphabet acc = word.get(0);
-//        if (word.size() > 1) {
-//            List<Alphabet> wordRest = word;
-//            wordRest.remove(0);
-//        } else {
-//            // LAST TERMINAL REACHED
-//            if (acc)
-//        }
-//
-//        _checkWord(wordRest);
-//        wordRest.get(0);
-//        return false;
-//    }
-//
 //    /**
 //     * Returns Productions for a Terminal(left side) or empty if we have no Production
 //     *
