@@ -9,11 +9,11 @@ import java.util.List;
  */
 public class Production {
     private NonTerminal left;
-    private List<Alphabet> right;
+    private List<Letter> right;
 
-    public Production(NonTerminal left, Alphabet... right) {
+    public Production(NonTerminal left, Letter... right) {
         this.left = left;
-        this.right = new LinkedList<Alphabet>();
+        this.right = new LinkedList<Letter>();
         Collections.addAll(this.right, right);
     }
 
@@ -21,17 +21,21 @@ public class Production {
         this.left = left;
     }
 
-    public void setRight(Alphabet... right) {
+    public void setRight(Letter... right) {
         Collections.addAll(this.right, right);
     }
 
     public NonTerminal getLeft() {  return left; }
 
-    public List<Alphabet> getRight() {
+    public List<Letter> getRight() {
         return this.right;
     }
 
     public Boolean hasLeft(NonTerminal lefty) {  return getLeft().equals(lefty);}
+
+    public boolean hasRight(Letter letter) {
+        return right.contains(letter);
+    }
 
     @Override
     public String toString() {

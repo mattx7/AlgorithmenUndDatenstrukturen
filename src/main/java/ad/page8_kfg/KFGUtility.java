@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * Created by MattX7 on 16.11.2016.
+ *
  */
 public class KFGUtility {
 
@@ -19,7 +20,7 @@ public class KFGUtility {
 
     @NotNull
     public static KFG deleteLambdas(KFG kfg) {
-        // TODO S->e wird ersetzt durch S'->S|e
+        // TODO S->epsilon wird ersetzt durch S'->S|epsilon
 //        List<Production> productionsToDelete = getLambdaProduction();
 //        List<NonTerminal> nonTerminalToDelete =
         return null;
@@ -31,8 +32,7 @@ public class KFGUtility {
         return null;
     }
 
-    @NotNull
-    public static Boolean isChomskyNormalForm() {
-        return null;
+    public static boolean isChomskyNormalForm(KFG kfg) {
+        return false;
     }
 }

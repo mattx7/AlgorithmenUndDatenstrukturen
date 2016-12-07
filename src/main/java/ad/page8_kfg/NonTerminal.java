@@ -5,7 +5,7 @@ import org.jetbrains.annotations.NotNull;
 /**
  * Created by MattX7 on 16.11.2016.
  */
-public class NonTerminal implements Alphabet {
+public class NonTerminal implements Letter {
     private String id;
 
     public NonTerminal(String id) {

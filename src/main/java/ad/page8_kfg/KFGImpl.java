@@ -38,13 +38,13 @@ public class KFGImpl implements KFG {
      *
      * @param productions production function for the KFG
      */
-    public void addProduction(@NotNull Production... productions) {
+    public void addProduction(@NotNull Production... productions) throws IllegalArgumentException {
         for (Production production : productions) {
             if (hasProduction(production))
                 throw new IllegalArgumentException("KFG has production already: " + production);
             if (!nonTerminals.contains(production.getLeft()))
                 throw new IllegalArgumentException("KFG does not offer the offered left side " + production);
-//            if (!nonTerminals.containsAll(production.getRight()) && !terminals.containsAll(production.getRight())) // TODO
+//            if (!nonTerminals.containsAll(production.getRight()) && !terminals.containsAll(production.getRight())) // TODO contains right?
 //                throw new IllegalArgumentException("KFG does not offer the offered right side " + production);
         }
         Collections.addAll(this.productions, productions);
