@@ -2,9 +2,7 @@ package ad.page8_kfg;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.Set;
 
 /**
  * Created by MattX7 on 16.11.2016.
@@ -21,36 +19,24 @@ public interface KFG {
     static KFG compile(@NotNull String... productions) throws IllegalArgumentException {
         KFG kfg = new KFGImpl();
 
-        for (String production : productions) {
-            String leftPattern = "[A-Z]";
-            String rightPattern = "[a-zA-Z#]+";
-            String productionPattern = "(" + leftPattern + ")" + "\\p{Blank}*->\\p{Blank}*" + "(" + rightPattern + ")";
+        for (String prodString : productions) {
+            Production production = Production.valueOf(prodString);
+            if (!kfg.hasNonTerminal(String.valueOf(production.getLeft())))
+                kfg.addNonTerminal(production.getLeft());
 
-            Pattern pattern = Pattern.compile(productionPattern);
-            Matcher matcher = pattern.matcher(production);
 
-            if (matcher.matches()) {
-                // left side
-                String left = matcher.group(1);
-                if (left.length() == 1 && Character.isUpperCase(left.charAt(0)))
-                    kfg.addTerminal(Terminal.valueOf(left));
-                else throw new IllegalArgumentException("Invalid letter at the left side of Production: " + production);
-
-                // right side
-                String right = matcher.group(2);
-                for (int i = 0; i < right.length(); i++) {
-                    char letter = right.charAt(i);
-                    // ASCII Table: https://www.cs.cmu.edu/~pattis/15-1XX/common/handouts/ascii.html
-                    if (Character.isUpperCase(letter)) {
+            for (Letter letter : production.getRight()) {
+                if (Character.isUpperCase(letter.getId().charAt(0))) {
+                    if (!kfg.hasNonTerminal(String.valueOf(letter)))
                         kfg.addNonTerminal(NonTerminal.valueOf(String.valueOf(letter)));
-                    } else {
+                } else {
+                    if (!kfg.hasNonTerminal(String.valueOf(letter)) && !kfg.hasTerminal(String.valueOf(letter)))
                         kfg.addTerminal(Terminal.valueOf(String.valueOf(letter)));
-                    }
                 }
-
-            } else {
-                throw new IllegalArgumentException("Invalid production rule: " + production);
             }
+
+            kfg.addProduction(production);
+
         }
         return kfg;
     }
@@ -82,7 +68,7 @@ public interface KFG {
      * @param start NonTerminal that should be the start
      * @throws IllegalArgumentException if param has unknown state
      */
-    void setStart(@NotNull NonTerminal start) throws IllegalArgumentException;
+    void setStart(@NotNull String start) throws IllegalArgumentException;
 
     /**
      * Returns true if word is acceptable
@@ -109,7 +95,7 @@ public interface KFG {
      * @return True if KFG has the given nonTerminal
      */
     @NotNull
-    Boolean hasNonTerminal(@NotNull NonTerminal nonTerminal);
+    Boolean hasNonTerminal(@NotNull String nonTerminal);
 
     /**
      * Returns true if KFG has the given terminal
@@ -118,7 +104,7 @@ public interface KFG {
      * @return True if KFG has the given terminal
      */
     @NotNull
-    Boolean hasTerminal(@NotNull Terminal terminal);
+    Boolean hasTerminal(@NotNull String terminal);
 
     /**
      * Returns true if KFG has the given production
@@ -127,15 +113,17 @@ public interface KFG {
      * @return True if KFG has the given production
      */
     @NotNull
-    Boolean hasProduction(@NotNull Production production);
+    Boolean hasProduction(@NotNull String production);
 
-    List<Terminal> getTerminals();
+    Set<Terminal> getTerminals();
 
-    List<NonTerminal> getNonTerminals();
+    Set<NonTerminal> getNonTerminals();
 
-    List<Production> getProductions();
+    Set<Production> getProductions();
 
     NonTerminal getStart();
 
+    NonTerminal getNonTerminal(String nonTerminal);
 
+    Terminal getTerminal(String terminal);
 }

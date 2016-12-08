@@ -12,9 +12,9 @@ public class KFGTest {
 
     private KFG testObject;
     private KFG testObject2;
-    private NonTerminal S, A, B, C, D;
-    private Terminal epsilon, x, y, z;
-    private Production S_epsilon, S_ABxC, A_xAy, A_epsilon, B_yBS, B_D, C_epsilon, D_B, D_z;
+//    private NonTerminal S, A, B, C, D;
+//    private Terminal epsilon, x, y, z;
+//    private Production S_epsilon, S_ABxC, A_xAy, A_epsilon, B_yBS, B_D, C_epsilon, D_B, D_z;
 
     @BeforeMethod
     public void setUp() throws Exception {
@@ -46,7 +46,7 @@ public class KFGTest {
 //        testObject.addNonTerminal(S, A, B, C, D);
 //        testObject.addProduction(S_epsilon, S_ABxC, A_xAy, A_epsilon, B_yBS, B_D, C_epsilon, D_B, D_z);
         testObject = KFG.compile("S->#", "S->ABxC", "A->xAy", "A->#", "B->yBS", "B->D", "C->#", "D->B", "D->z");
-        testObject.setStart(S);
+        testObject.setStart("S");
 
         System.out.println(testObject);
     }
@@ -59,32 +59,32 @@ public class KFGTest {
 
     @Test
     public void testHasNonTerminal() throws Exception {
-        assertTrue(testObject.hasNonTerminal(S));
-        assertTrue(testObject.hasNonTerminal(A));
-        assertTrue(testObject.hasNonTerminal(B));
-        assertTrue(testObject.hasNonTerminal(C));
-        assertTrue(testObject.hasNonTerminal(D));
+        assertTrue(testObject.hasNonTerminal("S"));
+        assertTrue(testObject.hasNonTerminal("A"));
+        assertTrue(testObject.hasNonTerminal("B"));
+        assertTrue(testObject.hasNonTerminal("C"));
+        assertTrue(testObject.hasNonTerminal("D"));
     }
 
     @Test
     public void testHasTerminal() throws Exception {
-        assertTrue(testObject.hasTerminal(x));
-        assertTrue(testObject.hasTerminal(y));
-        assertTrue(testObject.hasTerminal(z));
-        assertTrue(testObject.hasTerminal(epsilon));
+        assertTrue(testObject.hasTerminal("x"));
+        assertTrue(testObject.hasTerminal("y"));
+        assertTrue(testObject.hasTerminal("z"));
+        assertTrue(testObject.hasTerminal("#"));
     }
 
     @Test
     public void testHasProduction() throws Exception {
-        assertTrue(testObject.hasProduction(S_epsilon));
-        assertTrue(testObject.hasProduction(S_ABxC));
-        assertTrue(testObject.hasProduction(A_xAy));
-        assertTrue(testObject.hasProduction(A_epsilon));
-        assertTrue(testObject.hasProduction(B_yBS));
-        assertTrue(testObject.hasProduction(B_D));
-        assertTrue(testObject.hasProduction(C_epsilon));
-        assertTrue(testObject.hasProduction(D_B));
-        assertTrue(testObject.hasProduction(D_z));
+        assertTrue(testObject.hasProduction("S->#"));
+        assertTrue(testObject.hasProduction("S->ABxC"));
+        assertTrue(testObject.hasProduction("A->xAy"));
+        assertTrue(testObject.hasProduction("A->#"));
+        assertTrue(testObject.hasProduction("B->yBS"));
+        assertTrue(testObject.hasProduction("B->D"));
+        assertTrue(testObject.hasProduction("C->#"));
+        assertTrue(testObject.hasProduction("D->B"));
+        assertTrue(testObject.hasProduction("D->z"));
     }
 
 }
